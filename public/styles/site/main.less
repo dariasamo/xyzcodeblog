@@ -73,6 +73,14 @@ hr.small {
 	border-color: white;
 }
 
+p:empty {
+	display: none;
+}
+
+.post-preview img {
+	margin: 20px 0 30px;
+}
+
 // Navigation
 
 .navbar-custom {
@@ -103,6 +111,7 @@ hr.small {
 			}
 		}
 	}
+
 	@media only screen and (min-width: 768px) {
 		background: transparent;
 		border-bottom: 1px solid transparent;
@@ -181,9 +190,10 @@ hr.small {
 // Header
 
 .intro-header {
+	background-image: url(../images/home-bg.jpg);
 	background-color: @gray-light;
-	background: no-repeat center center;
-	background-attachment: scroll;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	.background-cover;
 	// NOTE: Background images are set within the HTML using inline CSS!
 	margin-bottom: 50px;

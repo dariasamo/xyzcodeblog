@@ -1,9 +1,13 @@
 extends ../layouts/default
 
 mixin post(post)
-	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		h2: a(href='/blog/post/' + post.slug)= post.title
-		p.lead.text-muted Posted 
+	.post-preview(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
+		a(href='/blog/post/' + post.slug)
+			h2.post-title= post.title
+			p!= post.content.brief
+			if post.image.exists
+				img(src=post._.image.fit(500,500)).img
+		p.post-meta Posted 
 			if post.publishedDate
 				| on #{post._.publishedDate.format('MMMM Do, YYYY')} 
 			if post.categories && post.categories.length
@@ -15,26 +19,25 @@ mixin post(post)
 					else
 						|  
 			if post.author
-				| by #{post.author.name.first}
-		if post.image.exists
-			img(src=post._.image.fit(160,160)).img.pull-right
-		p!= post.content.brief
-		if post.content.extended
-			p.read-more: a(href='/blog/post/' + post.slug) Read more...
-
-block intro
-	.container
-		h1= data.category ? data.category.name : 'Blog'
+					| by #{post.author.name.first}
+		hr
 
 block content
+	header.intro-header.index-page
+		.container: .row
+			.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+				.site-heading
+					h1 XYZ Code
+					hr.small
+					span.subheading XYZ Team RGSoC 2016 blog
+	
 	.container: .row
-		.col-sm-8.col-md-9
+		.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
 			if filters.category && !data.category
 				h3.text-muted Invalid Category.
 			else
 				if data.posts.results.length
 					if data.posts.totalPages > 1
-						h4.text-weight-normal Showing 
 							strong #{data.posts.first}
 							|  to 
 							strong #{data.posts.last}
@@ -42,17 +45,16 @@ block content
 							strong #{data.posts.total}
 							|  posts.
 					else
-						h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
 					.blog
 						each post in data.posts.results
 							+post(post)
 					
 					if data.posts.totalPages > 1
-						ul.pagination
+						ul.pager
 							if data.posts.previous
-								li: a(href='?page=' + data.posts.previous): span.glyphicon.glyphicon-chevron-left
+								li.next: a(href='?page=' + data.posts.previous): Older Posts &rarr;
 							else
-								li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+								li.disabled: a(href='?page=' + 1): Older Posts &rarr;
 							each p, i in data.posts.pages
 								li(class=data.posts.currentPage == p ? 'active' : null)
 									a(href='?page=' + (p == '...' ? (i ? data.posts.totalPages : 1) : p ))= p
@@ -67,9 +69,9 @@ block content
 						h3.text-muted There are no posts yet.
 		
 		if data.categories.length
-			.col-sm-4.col-md-3
+			.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
 				h2 Categories
-				.list-group(style='margin-top: 70px;')
+				.post-meta(style='margin-top: 70px;')
 					a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
 					each cat in data.categories
 						a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
