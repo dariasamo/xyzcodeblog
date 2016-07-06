@@ -13,11 +13,7 @@ keystone.init({
 	'name': 'XYZ Code Blog',
 	'brand': 'XYZ Code Blog',
 
-<<<<<<< HEAD
 	'less': 'public',
-=======
-	'sass': 'public',
->>>>>>> 396b537936147700d2cb512a64ca18fae8a4ea9f
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
@@ -49,11 +45,7 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
 	posts: ['posts', 'post-categories'],
-<<<<<<< HEAD
-=======
 	galleries: 'galleries',
-	enquiries: 'enquiries',
->>>>>>> 396b537936147700d2cb512a64ca18fae8a4ea9f
 	users: 'users',
 });
 

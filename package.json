@@ -3,19 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "keystone": "^0.3.19",
     "async": "^1.5.0",
     "lodash": "^4.13.1",
     "dotenv": "^2.0.0"
-=======
-    "async": "^1.5.0",
-    "dotenv": "^2.0.0",
-    "keystone": "^0.3.19",
-    "lodash": "^4.13.1",
-    "node-sass": "^3.3.2",
-    "node-sass-middleware": "^0.9.8"
->>>>>>> 396b537936147700d2cb512a64ca18fae8a4ea9f
   },
   "devDependencies": {
     "eslint": "^2.12.0",
@@ -23,12 +14,7 @@
     "eslint-plugin-react": "^5.1.1",
     "gulp": "^3.7.0",
     "gulp-shell": "^0.5.0",
-<<<<<<< HEAD
     "gulp-watch": "^4.3.5"
-=======
-    "gulp-watch": "^4.3.5",
-    "gulp-sass": "^2.0.4"
->>>>>>> 396b537936147700d2cb512a64ca18fae8a4ea9f
   },
   "scripts": {
     "lint": "eslint .",
