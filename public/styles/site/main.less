@@ -83,6 +83,11 @@ p:empty {
 
 // Navigation
 
+.navbar-default .navbar-nav>.active>a {
+	background-color: transparent;
+	color: @theme-primary;
+}
+
 .navbar-custom {
 	position: absolute;
 	top: 0;
@@ -185,6 +190,14 @@ p:empty {
 			transform: translate3d(0, 100%, 0);
 		}
 	}
+}
+
+.overlay {
+	background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…gd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.7)), color-stop(100%, rgba(0, 0, 0, 0.7)));
+	background: -moz-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+	background: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
 }
 
 // Header
