@@ -1,0 +1,17 @@
+extends ../layouts/default
+
+block content
+	header.intro-header.index-page(style={'background-image': 'url(#{data.page._.image.fit(1500,1500)})'})
+		.overlay
+			.container: .row
+				.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+					.post-heading
+						h1= data.page.title
+						h2.subheading 
+							p!= data.page.content.brief 
+	article
+		.container: .row: .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1		
+			if !data.page
+				h2 Nothing here.
+			else
+				!= data.page.content.full
