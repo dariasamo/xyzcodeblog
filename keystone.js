@@ -18,7 +18,6 @@ keystone.init({
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
-	// 'port': 3010,
 
 	'auto update': true,
 	'session': true,
