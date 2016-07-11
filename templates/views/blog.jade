@@ -6,7 +6,7 @@ mixin post(post)
 			h2.post-title= post.title
 			p!= post.content.brief
 			if post.image.exists
-				img(src=post._.image.fit(500,500)).img
+				img(src=post._.image.fit(800,800)).img
 		p.post-meta Posted 
 			if post.publishedDate
 				| on #{post._.publishedDate.format('MMMM Do, YYYY')} 
